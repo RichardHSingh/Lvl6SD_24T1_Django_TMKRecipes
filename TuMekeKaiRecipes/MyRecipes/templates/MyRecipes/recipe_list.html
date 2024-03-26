@@ -1,0 +1,86 @@
+{% extends 'MyRecipes/base.html' %}
+{% load static %}
+
+{% block background %}
+<style>
+    body {
+        background-image: url("");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        
+    }
+     /* Style for the links */
+  .card {
+    margin-bottom: 20px;
+    
+  }
+  .prettybtn:hover {
+    border-color: #9c7945; 
+    box-shadow: 10px 10px 10px #9c7945;
+    font-weight: bold;
+    
+    
+  }
+  .x1{
+    padding: 5px 10px;
+    
+  }
+  .images-69{
+    height: 350px;
+    width: 425px;
+  }
+  </style>
+{% endblock background %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <form class="d-flex justify-content-center">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                <button class="btn btn-outline-dark prettybtn" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mb-4 text-center">
+            <a href="{% url 'recipe_all' %}" class="btn btn-outline-dark mb-4 prettybtn">Show All Recipes</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row row-cols-3 g-4 px-5">
+        {% for recipe in recipes %}
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <img src="{% static '/' %}{{ recipe.image }}" class="card-img-top images-69" alt="{{ recipe.title }}"> 
+                <div class="card-body" style="border-style: outset;">
+                    <h4 class="card-title">{{ recipe.title }}</h4>
+                    <p class="card-text " style="color: #9c7945;"><i class="fas fa-user text-warning"></i>&nbsp;<strong>{{ recipe.author }}</strong> || <i class="fas fa-clock text-warning"></i>&nbsp;<strong>{{ recipe.updated_at|date:"jS M Y" }}</strong></p>
+                    <p class="card-text" ><strong>Description:</strong> {{ recipe.description }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="prettybtn x1" href="{% url 'recipes-detail' recipe.pk %}" style="color: #9c7945;"><i class="fas fa-eye"></i> View Recipe...</a>
+                    </div>
+                    <hr>
+                    {% if recipe.author == user or user.is_staff %}
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <a class="btn btn-outline-warning me-2" href="{% url 'recipes-update' recipe.pk %}"><i class="fas fa-edit"></i> Update Recipe</a>
+                            <a class="btn btn-outline-danger" href="{% url 'recipes-delete' recipe.pk %}"><i class="fas fa-trash-alt"></i> Delete Recipe</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+

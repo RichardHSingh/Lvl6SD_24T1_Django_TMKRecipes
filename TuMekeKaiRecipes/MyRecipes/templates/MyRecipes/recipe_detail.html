@@ -1,0 +1,43 @@
+{% extends 'MyRecipes/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {% comment %} <h1>Detailed recipe for recipe {{ object.title }} on the list is...</h1> {% endcomment %}
+    <div class="container mt-5">
+        <div class="card mb-4">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{% static "/" %}{{object.image}}" width="100%" class="card-img thumbnail" alt="Breakfast">
+                    
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2 class="card-title text-warning"><strong>{{ object.title }}</strong></h2><br><br>
+                        <p class="card-text fs-5" style="color: #9c7945;"><strong><i class="fas fa-user"></i> Author: {{ object.author_name }}</strong><br><strong><i class="fa-solid fa-clock"></i> Date Published: {{ object.updated_at|date:"d F Y" }}</strong></p><br>
+                        <p class="card-text fs-5"><strong>Description:</strong> {{ object.description }}</p><br>
+                        <p class="card-text fs-5"><strong>Ingredients:</strong> {{ object.ingredients }}</p><br>
+                        <p class="card-text fs-5 mb-5"><strong>Instructions:</strong> {{ object.instructions }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            {% if recipe.author == user or user.is_staff %}
+                            <div class="mt-3">
+                                <a class="btn btn-outline-warning me-2" href="{% url 'recipes-update' recipe.pk %}"><i class="fas fa-edit"></i> Update Recipe</a>
+                                <a class="btn btn-outline-danger" href="{% url 'recipes-delete' recipe.pk %}"><i class="fas fa-trash-alt"></i> Delete Recipe</a>
+                            </div>
+                            {% endif %}
+                            <a class="mt-5 text-end" href="{% url 'recipes-recipes' %}" style="color: #9c7945;">Back to recipes...</a>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} {% if user.is_authenticated %}
+        {% if not recipe.is_favorite %}
+            <a href="{% url 'recipes-add-favorites' recipe.id %}" class="btn btn-outline-primary"><i class="fas fa-heart"></i> Add to Favorites</a>
+        {% else %}
+            <a href="{% url 'recipes-remove-favorites' recipe.id %}" class="btn btn-outline-danger"><i class="fas fa-heart-broken"></i> Remove from Favorites</a>
+        {% endif %} 
+    {% endif %} {% endcomment %}
+{% endblock content %}

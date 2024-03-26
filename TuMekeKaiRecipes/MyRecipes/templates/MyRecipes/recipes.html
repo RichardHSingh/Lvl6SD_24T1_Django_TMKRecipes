@@ -1,0 +1,190 @@
+{% extends 'MyRecipes/base.html' %}
+{% load static %}
+
+<!-- ========================== Setting title for Recipe Page =============================== -->
+
+
+
+
+
+<!-- ======== Custom CSS for background ======== -->
+{% block background %}
+  <style>
+    body {
+        background-image: url("");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+     /* Style for the links */
+  .card {
+    border: outset;
+    margin-bottom: 20px; 
+  }
+  .card img {
+    height: 200px;
+    object-fit: cover; 
+    border-top-left-radius: 5px; 
+    border-top-right-radius: 5px; 
+  }
+  .bg-black:hover {
+    background-color: #9c7945; 
+    border-color: #9c7945; 
+    box-shadow: 10px 10px 10px #9c7945;
+  }
+  
+  </style>
+{% endblock background %}
+
+
+<!-- ======== Setting for HEADER ========= -->
+{% block header %}
+<header class="bg-black">
+  <div class="px-3 pb-4 row col-sm container" style="color: #9c7945;">
+    <div class="col-md-2">
+      <img src="{% static 'Images/Logo.png' %}" class="thumbnail mt-1" style="width: 175px; height: 150px;">
+    </div>
+    <div class="col-md-10 flex-column justify-content-center align-items-center">
+      <h3 class="mt-5">No Mai Haere Mai Ki Te Wharekai ō Tu Meke Kai<br>
+        <i>"Welcome to Tu Meke Kai Kitchen"</i>
+      </h3>
+      <div class="text-center">
+      <h1 class="h1 mt-5" style="margin-left: 50%;">Tokutaka&nbsp;<i>"Recipes"</i></h1>
+    </div>
+    </div>
+  </div>
+</header>
+{% endblock header %}
+
+
+
+
+   
+  {% block content %}
+  <div class="container mt-5" >
+    <div class="row" style="margin-top: 15%;">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/Breakfast.png' %}" class="card-img-top  " alt="Breakfast">
+          <div class="card-body">
+            <h3 class="card-title">Breakfast Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Breakfast Recipes</p>
+            <a href="{% url 'breakfast_recipes' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a> 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/Lunch.png' %}" class="card-img-top" alt="Lunch">
+          <div class="card-body">
+            <h3 class="card-title">Lunch Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Lunch Recipes</p>
+            <a href="{% url 'lunch_recipes' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a> 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/Dinner.jpg' %}" class="card-img-top" alt="Dinner">
+          <div class="card-body">
+            <h3 class="card-title">Dinner Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Dinner Recipes</p>
+            <a href="{% url 'dinner_recipes' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/Dessert.png' %}" class="card-img-top" alt="Dessert">
+          <div class="card-body">
+            <h3 class="card-title">Dessert Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Dessert Recipes</p>
+            <a href="{% url 'dessert_recipes' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/Drinks.png' %}" class="card-img-top" alt="Drinks">
+          <div class="card-body">
+            <h3 class="card-title">Drinks Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Drinks Recipes</p>
+            <a href="{% url 'drinks_recipes' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/Platter.png' %}" class="card-img-top" alt="Platters">
+          <div class="card-body">
+            <h3 class="card-title">Platters Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Platter Recipes</p>
+            <a href="{% url 'platter_recipes' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/Keto.jpg' %}" class="card-img-top" alt="Keto">
+          <div class="card-body">
+            <h3 class="card-title">Keto Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Dessert Recipes</p>
+            <a href="{% url 'recipes_keto' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/vegetarian.jpg' %}" class="card-img-top" alt="Vegetarian">
+          <div class="card-body">
+            <h3 class="card-title">Vegetarian Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Drinks Recipes</p>
+            <a href="{% url 'recipes_vegetarian' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/healthy.jpg' %}" class="card-img-top" alt="Healthy">
+          <div class="card-body">
+            <h3 class="card-title">Healthy Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Platter Recipes</p>
+            <a href="{% url 'recipes_healthy' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/Keto.jpg' %}" class="card-img-top" alt="Mothers Day">
+          <div class="card-body">
+            <h3 class="card-title">Mother's Day Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Dessert Recipes</p>
+            <a href="{% url 'recipes_mothersDay' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{% static 'Images/vegetarian.jpg' %}" class="card-img-top" alt="New Years">
+          <div class="card-body">
+            <h3 class="card-title">New Years Recipes</h3><br>
+            <p class="card-text fs-5">Click on "View More" to view more Drinks Recipes</p>
+            <a href="{% url 'recipes_newYears' %}" class="btn bg-black fw-bold" style="color: #9c7945;">View More</a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+{% endblock content %} 

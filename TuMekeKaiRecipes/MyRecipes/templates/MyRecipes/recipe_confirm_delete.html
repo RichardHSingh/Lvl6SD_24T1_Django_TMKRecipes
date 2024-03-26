@@ -1,0 +1,48 @@
+{% extends 'MyRecipes/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<!-- ========================== Setting title for Recipe Page =============================== -->
+
+
+{% block background %}
+  <style>
+    body {
+        background-image: url("");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .btn:hover{ 
+    border-color: #9c7945; 
+    box-shadow: 10px 10px 10px #9c7945;
+    font-weight: bold
+    color: white;
+  }
+  
+  </style>
+{% endblock background %}
+
+
+{% block content %} 
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-5 pd-4 text-center"><strong>Recipe Graveyard</strong></legend>
+            <legend class="" mt-5" text-center"><strong>Are you sure your want to delete recipe for <strong>{{ object }}</strong>, </strong></legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group pt-5 mb-4">
+            <button class="btn btn-outline-danger px-4" type="submit"><i class="fas fa-trash-alt"></i> Delete</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <a href="{% url "recipes-home" %}" class="text-decoration-none"><button class="btn btn-outline-success px-4"><i class="fas fa-times"></i> Abort</button></a>
+    </div>
+</div>
+
+{% endblock content %}

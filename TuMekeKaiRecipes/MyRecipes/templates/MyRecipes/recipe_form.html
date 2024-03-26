@@ -1,0 +1,46 @@
+{% extends 'MyRecipes/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<!-- ========================== Setting title for Recipe Page =============================== -->
+
+
+{% block background %}
+  <style>
+    body {
+        background-image: url("");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .btn:hover{        
+    background-color: black;
+    border-color: #9c7945; 
+    box-shadow: 10px 10px 10px #9c7945;
+    font-weight: bold
+  }
+  
+  </style>
+{% endblock background %}
+
+{% block content %} 
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-5 text-center"><strong>Add New Recipe</strong></legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group pt-5">
+            <button class="btn btn-outline-warning" type="submit" style="color: #9c7945;"><i class="fas fa-save"></i> Save</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <a href="{% url "recipes-home" %}" class="text-decoration-none"><i class="fas fa-times-circle"></i> Cancel</a>
+    </div>
+</div>
+
+{% endblock content %}

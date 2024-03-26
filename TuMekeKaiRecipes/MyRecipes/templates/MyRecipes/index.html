@@ -1,0 +1,178 @@
+{% extends 'MyRecipes/base.html' %}
+{% load static %}
+
+
+
+
+<!-- ============ INDEX PAGE CONTENT ============ -->  
+
+
+<!-- ============ BODY HERO SECTION ============ -->
+{% block background %}
+<style>
+    body {
+        background-image: url("");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+     /* Style for the links */
+  .card {
+    margin-bottom: 20px; 
+  }
+  .recipeHover:hover {
+    background-color: antiquewhite;
+    border-color: #9c7945; 
+    box-shadow: 10px 10px 10px #9c7945;
+    font-weight: bold;
+    
+  }
+  .x1{
+    padding: 5px 10px;
+    font-size: larger;
+  }
+  
+  </style>
+{% endblock background %}
+
+
+
+
+{% block video %}
+<section>
+    <div class="mt-5">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 style="margin-top: 150px;" class="text-center" style="color: #9c7945;">Hero Section</h1><br>
+                <h2 class=" text-center " style="color: #9c7945;">A traditional boil-up to the cold at bay</h2>
+                <video width="950px" height="600px" controls class="mt-3">
+                    <source  src="{% static 'Videos/Māori_BoilUp.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock video %}
+
+
+
+ <!-- ============ COMMUNITY FEEDBACK SECTION ============ -->
+ {% block content %} 
+ 
+ <h1 class="text-center mb-4 text-center" style="margin-top: 10%; color: #9c7945;">Community Feedback</h1>
+ <div class="container bg-black py-5 " >
+
+ <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 bg-black px-3">      
+     <div class="col">
+         <div class="card">
+             <div class="card-body">
+                 <h4 class="card-title" style="color: #9c7945;">Xilin Zhang</h4>
+                 <h5 class="card-title text-warning">Return Client</h5>
+                 <p class="card-text">I've has an amazing experience using this website to gain inspiration for family dinners. 
+                   Kids are loving it and I feel like the community sharing their ideas and recipes brings a new experience to their lives.</p>
+             </div>
+         </div>
+     </div>
+     <div class="col">
+         <div class="card">
+             <div class="card-body">
+               <h4 class="card-title" style="color: #9c7945;">Raja Krishnappa Bairya</h4>
+                 <h5 class="card-title text-warning">First-time User</h5>
+                 <p class="card-text">I had a great time using this recipe app; it had an easy-to-use design, excellent meals, and a 
+                   whole experience that made cooking at home feel like dining out.</p>
+             </div>
+         </div>
+     </div>
+     <div class="col">
+       <div class="card">
+           <div class="card-body">
+             <h4 class="card-title" style="color: #9c7945;">Mahaki Riddell</h4>
+               <h5 class="card-title text-warning">Long-term User</h5>
+               <p class="card-text">I was astounded by the flavours of the dishes I tested after using this app, and I was also impressed by how quickly 
+                 I was able to find the ones I required! Strongly advised!</p>
+           </div>
+       </div>
+   </div>
+ </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 bg-black mt-5 px-3">        
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="color: #9c7945;">Jung Gyum Kim</h4>
+                <h5 class="card-title text-warning">Happy Customer</h5>
+                <p class="card-text">You don't need to search any farther if you're seeking wide variety of foods and flavours
+                    to satisfy your appetite! I was pleasantly surprised and am eager to try out additional recipes.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="color: #9c7945;">Glenn Atmadji</h4>
+                <h5 class="card-title text-warning">Single Parent</h5>
+                <p class="card-text">Every time I use this recipe app, I discover new and delicious recipes; the step-by-step
+                    guidance and beautiful imagery make cooking a delightful experience</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title" style="color: #9c7945;">Naruto Uzumaki-Namikaze</h4>
+                <h5 class="card-title text-warning">Body Builder</h5>
+                <p class="card-text">Loving this recipe app for bodybuilding! It's packed with high-protein recipes that fuel my workouts and support muscle growth.
+                    Easy to use with detailed nutrition info. Highly recommend</p>
+            </div>
+        </div>
+    </div>
+    </div>
+ 
+</div>  
+{% endblock content %}
+
+{% block recipes %}
+
+<h1 class="text-center mb-4 text-center" style="margin-top: 10%; color: #9c7945;">Delicious Delectables</h1>
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 px-3">
+        <div class="col">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">Chocolate Brownie</h2>
+                    <p class="card-text fs-5" style="color: #9c7945;"><i class="fas fa-user text-warning"></i>&nbsp;<strong>Jono Clarke</strong>
+                        || <i class="fas fa-clock text-warning"></i>&nbsp;<strong>3rd Mar 2023</strong></p>
+                    <p class="card-text fs-5"><strong>Description:</strong> Gooey Chocolate centre that goes down a treat with everyone. A must-have recipe for every household</p>
+                    <a class="recipeHover x1 text-end" href="{% url 'recipes-recipes' %}" style="color: #9c7945;"><i class="fas fa-eye"></i> View Recipe...</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h2 class="card-title"> Grilled Venison</h2>
+                    <p class="card-text fs-5" style="color: #9c7945;"><i class="fas fa-user text-warning"></i>&nbsp;<strong>Brandine Meyers</strong>
+                        || <i class="fas fa-clock text-warning"></i>&nbsp;<strong>22nd Jul 2023</strong></p>
+                    <p class="card-text fs-5"><strong>Description:</strong> Free Range Venison served on a bed of Creamy Garlic Mash with homemade Red Wine Jus</p>
+                    <a class="recipeHover x1 text-end" href="{% url 'recipes-recipes' %}" style="color: #9c7945;"><i class="fas fa-eye"></i> View Recipe...</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">Char Sui Pork</h2>
+                    <p class="card-text fs-5" style="color: #9c7945;"><i class="fas fa-user text-warning"></i>&nbsp;<strong>Jono Clarke</strong>
+                        || <i class="fas fa-clock text-warning"></i>&nbsp;<strong>25th Dec 2010</strong></p>
+                    <p class="card-text fs-5"><strong>Description:</strong> Juicy Cantonese-style barbecued pork. Good luck getting seconds</p>
+                    <a class="recipeHover x1 text-end" href="{% url 'recipes-recipes' %}" style="color: #9c7945;"><i class="fas fa-eye"></i> View Recipe...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock recipes %}
