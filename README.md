@@ -10,7 +10,7 @@ Task involves harnessing the capabilities of the Django framework to craft a rob
 
 
 # Commands Needed
-Following are needed to be typed into terminal at appropraite times during the course of the development. These are the imperative though not limited to commands needed.<br>
+Following are needed to be typed into terminal at appropraite times during the course of the development. These are the imperative though not limited to commands needed.<br><br>
 
 **python -m venv env** --> to have a virutal environment set up in your workspace<br><br>
 **.venv\scripts\activate** --> to enable to virtual environment<br><br>
