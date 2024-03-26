@@ -6,7 +6,10 @@ We've been assigned the exciting project of building a dynamic website for culin
 Task involves harnessing the capabilities of the Django framework to craft a robust and scalable website. It's crucial to create an intuitive interface with an appealing design, ensuring that users find it easy to navigate. Additionally, the website must be responsive, adapting seamlessly to different devices for optimal accessibility.
 
 
+__________________________________________________________________________________________________________________________________
+
 # Commands Needed
 **python -m venv env** --> to have a virutal environment set up in your workspace<br>
 **.venv\scripts\activate** --> to enable to virtual environment
+ **pip install django** --> installs django into workspace and venv
 
