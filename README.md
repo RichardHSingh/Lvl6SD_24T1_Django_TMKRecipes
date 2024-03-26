@@ -7,7 +7,7 @@ Task involves harnessing the capabilities of the Django framework to craft a rob
 <br>
 <br>
 <br>
-__________________________________________________________________________________________________________________________________
+
 
 # Commands Needed
 **python -m venv env** --> to have a virutal environment set up in your workspace<br><br>
