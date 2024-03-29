@@ -17,6 +17,11 @@ Following are needed to be typed into terminal at appropraite times during the c
 **pip install django** --> installs django into workspace and venv<br><br>
 **django-admin startproject TMKRecipes** --> creates a project with given name<br><br>
 **pip install django-crispy-forms** --> enables the forms created to look nicer and more elegiant<br><br>
+<br>
+<br>
+<br>
 
- 
 
+# Tutorial Guide
+Used the following website for my project. Content is easy to follow and explaination hs no technical jargons. Highly recommend if one wishes to start their own project. Just need to customise the pages to how you want it to look.<br><br>
+https://dev.to/domvacchiano/create-a-recipe-app-in-django-tutorial-5hh
