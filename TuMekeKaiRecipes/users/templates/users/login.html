@@ -2,12 +2,8 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-
-<!-- ========================== Setting title for Recipe Page =============================== -->
-
-
 {% block background %}
-  <style>
+<style>
     body {
         background-image: url("");
         background-attachment: fixed;
@@ -15,33 +11,39 @@
         background-repeat: no-repeat;
         background-size: 100% 100%;
     }
-    .btn:hover{
-    background-color: black;
-    border-color: #9c7945; 
-    box-shadow: 10px 10px 10px #9c7945;
-    font-weight: bold
-  }
-  
-  </style>
+
+    .btn:hover {
+        background-color: black;
+        border-color: #9c7945;
+        box-shadow: 10px 10px 10px #9c7945;
+        font-weight: bold
+    }
+</style>
 {% endblock background %}
 
-
-{% block register %} 
+{% block content %}
 
 <div class="container">
+    {% if user.is_authenticated %}
+    <p>Hi {{ user.username }}!</p>
+    <p><a href="{% url 'logout' %}" class="btn btn-outline-warning" style="color: #9c7945;">Log Out</a></p>
+    <p><a href="{% url 'password_reset' %}" class="btn btn-outline-warning" style="color: #9c7945;">Reset Password</a></p>
+    {% else %}
     <form method="POST">
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-5 text-center"><strong>Registered User Login</strong></legend>
             {{ form|crispy }}
         </fieldset>
-        <div class="form-group pt-5">
-            <input class="btn btn-outline-warning" style="color: #9c7945" type="submit" value="Login">
+        <div class="form-group pt-5 pb-2">
+            <input class="btn btn-outline-success" style="color: #9c7945" type="submit" value="Login">
+            <a href="{% url 'password_reset' %}" class="btn btn-outline-danger mx-5" style="color: #9c7945;">Reset Credentials</a>
         </div>
     </form>
     <div class="border-top pt-3">
-        <a href="{% url "user-register" %}">Havent Registered? Register here...</a>
+        <a href="{% url "user-register" %}">Haven't Registered? Register here...</a>
     </div>
+    {% endif %}
 </div>
 
-{% endblock register %} 
+{% endblock content %}
