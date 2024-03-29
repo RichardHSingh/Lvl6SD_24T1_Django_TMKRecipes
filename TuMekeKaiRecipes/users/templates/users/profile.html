@@ -1,0 +1,49 @@
+{% extends 'MyRecipes/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<!-- ========================== Setting title for Recipe Page =============================== -->
+
+
+{% block background %}
+  <style>
+    body {
+        background-image: url("");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .btn:hover{        
+    background-color: black;
+    border-color: #9c7945; 
+    box-shadow: 10px 10px 10px #9c7945;
+    font-weight: bold
+  }
+  
+  </style>
+{% endblock background %}
+
+
+{% block register %} 
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-5 text-center"><strong>User Profile</strong></legend>
+            <h5 class="pt-3 mb-4">Username:<i style="color: #9c7945"> {{ user.username }}</i></h5>
+            <h5 class="pt-3 mb-4">Email:<i style="color: #9c7945">{{ user_profile.email }}</i></h5>
+            <h5 class="pt-3">Phone Number:<i style="color: #9c7945"> {{ user_profile.phone_number }}</i></h5>
+        </fieldset>
+        <div class="form-group pt-5">
+            {% comment %} <a class="btn btn-outline-warning mb-4" style="color: #9c7945" href="{% url 'update_profile' %}">Update Profile</a> {% endcomment %}
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <a href="{% url 'recipes-home' %}">Traverse to home page...</a>
+    </div>
+</div>
+
+{% endblock register %} 
